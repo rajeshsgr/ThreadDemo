@@ -1,7 +1,6 @@
 package com.raj.nola.threads;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class ParallelExample {
 
@@ -9,17 +8,18 @@ public class ParallelExample {
 
         List<String> stringList = List.of("Ananya", "Jocelyn", "Julia", "Laila", "Riddhima", "Trisha");
 
-
         System.out.println("With || ism");
-
-        stringList.parallelStream().map(String::toUpperCase).forEach(System.out::println);
+        stringList.parallelStream().map(String::toUpperCase).forEach(s ->
+        {
+            System.out.println(s + " " + Thread.currentThread().getName());
+        });
 
         System.out.println("Without || ism");
-        stringList.stream().map(String::toUpperCase).forEach(System.out::println);
-
+        stringList.stream().map(String::toUpperCase).forEach(s ->
+        {
+            System.out.println(s + " " + Thread.currentThread().getName());
+        });
 
     }
-
-
 
 }

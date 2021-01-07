@@ -6,7 +6,7 @@ public class ConcurrentThreads implements Runnable {
         Runnable runnable = new ConcurrentThreads();
 
         System.out.println("Start of Main Thread");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             Thread thread = new Thread(runnable);
             thread.setName("Thread " + i);
             thread.start();
